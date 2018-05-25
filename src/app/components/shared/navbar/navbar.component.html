@@ -1,0 +1,22 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="assets/img/marvel-brand-logo.png" alt="Logo marvel" width="100" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="true">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <a class="navbar-item" routerLinkActive="active" [routerLink]="['home']">
+      Home
+    </a>
+    <a class="navbar-item" routerLinkActive="active" [routerLink]="['personajes']">
+      Personajes
+    </a>
+  </div>
+</nav>
