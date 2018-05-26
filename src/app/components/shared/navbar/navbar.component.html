@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-transparent">
   <div class="navbar-brand">
     <a class="navbar-item" href="#">
       <img src="assets/img/marvel-brand-logo.png" alt="Logo marvel" width="100" height="28">
@@ -12,11 +12,16 @@
   </div>
 
   <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <a class="navbar-item" routerLinkActive="active" [routerLink]="['home']">
-      Home
-    </a>
-    <a class="navbar-item" routerLinkActive="active" [routerLink]="['personajes']">
-      Personajes
-    </a>
+    <span class="navbar-item" routerLinkActive="active">
+      <a class="button is-danger is-outlined" [routerLink]="['home']">
+        Home
+      </a>
+    </span>
+
+    <span class="navbar-item" routerLinkActive="active">
+      <a class="button is-danger is-outlined" [routerLink]="['personajes']">
+        Personajes
+      </a>
+    </span>
   </div>
 </nav>
