@@ -1,13 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { APP_ROUTING } from './app.routes';
+import { APP_ROUTING } from "./app.routes";
+import { HttpClientModule } from "@angular/common/http";
 
 //Components
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { PersonajesComponent } from './components/personajes/personajes.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./components/home/home.component";
+import { PersonajesComponent } from "./components/personajes/personajes.component";
+import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 
 @NgModule({
   declarations: [
@@ -16,11 +17,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     NavbarComponent,
     PersonajesComponent
   ],
-  imports: [
-    BrowserModule,
-    APP_ROUTING
-  ],
+  imports: [BrowserModule, HttpClientModule, APP_ROUTING],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
