@@ -9,13 +9,15 @@ import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
 import { PersonajesComponent } from "./components/personajes/personajes.component";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    PersonajesComponent
+    PersonajesComponent,
+    LoadingComponent
   ],
   imports: [BrowserModule, HttpClientModule, APP_ROUTING],
   providers: [],

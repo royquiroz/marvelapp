@@ -1,20 +1,26 @@
 <div class="container">
 
-  <div class="column is-4 is-offset-4">
-
-    <p class="control has-icons-left">
-      <input #personaje (keyup)="buscar(personaje.value)" class="input is-danger is-rounded is-medium" type="text" placeholder="Buscar">
-      <span class="icon is-small is-left">
-        <i class="fas fa-search"></i>
-      </span>
-    </p>
-
+  <div class="columns">
+    <div class="column is-4 is-offset-4">
+      
+      <p class="control has-icons-left">
+        <input #personaje (keyup)="buscar(personaje.value)" class="input is-danger is-rounded is-medium" type="text" placeholder="Buscar">
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </p>
+      
+    </div>
   </div>
 
-  <div class="columns is-multiline">
+  <br/>
+
+  <app-loading *ngIf="loading"></app-loading>
+    
+  <div *ngIf="!loading" class="columns is-multiline animated fadeIn">
     <div *ngFor="let heroe of heroes" class="column is-one-third">
 
-      <div class="card">
+      <div (click)="verPersonaje(heroe)" class="card puntero">
         <div class="card-image">
           <figure class="image is-4by3">
             <img src="{{heroe.thumbnail.path}}.{{heroe.thumbnail.extension}}" alt="Placeholder image">
@@ -36,6 +42,10 @@
       </div>
 
     </div>
+  </div>
+
+  <div *ngIf="data">
+    <span class="has-text-centered" [innerHtml]="data.attributionHTML"></span>
   </div>
 
 </div>
