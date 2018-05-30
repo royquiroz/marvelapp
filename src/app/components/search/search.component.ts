@@ -1,16 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { MarvelService } from "../../services/marvel.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-personajes",
-  templateUrl: "./personajes.component.html"
+  selector: "app-search",
+  templateUrl: "./search.component.html"
 })
-export class PersonajesComponent{
+export class SearchComponent{
   heroes: any[] = [];
   data: any;
   loading: boolean;
 
-  constructor(private marvel: MarvelService) {}
+  constructor(private marvel: MarvelService, private router: Router) {}
 
   buscar(personaje: string) {
     
@@ -26,7 +27,11 @@ export class PersonajesComponent{
   }
 
   verPersonaje(heroe: any){
-    console.log(heroe);
+    
+    let characterId: number = heroe.id;
+
+    this.router.navigate([ '/character', characterId ]);
+
   }
 }
 

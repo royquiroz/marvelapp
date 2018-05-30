@@ -7,17 +7,19 @@ import { HttpClientModule } from "@angular/common/http";
 //Components
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
-import { PersonajesComponent } from "./components/personajes/personajes.component";
+import { SearchComponent } from "./components/search/search.component";
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { CharacterComponent } from './components/character/character.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    PersonajesComponent,
-    LoadingComponent
+    SearchComponent,
+    LoadingComponent,
+    CharacterComponent
   ],
   imports: [BrowserModule, HttpClientModule, APP_ROUTING],
   providers: [],
