@@ -1,3 +1,27 @@
-<p>
-  character works!
-</p>
+<div class="container is-fluid">
+
+  <section class="section">
+    <div class="columns is-multiline">
+      <div class="column is-2">
+        <figure class="image is-square">
+          <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="img-circle">
+        </figure>
+      </div>
+
+      <div class="column">
+        <h1 class="title is-1">{{character.name}}</h1>
+      </div>
+
+      <div class="column is-4">
+        <a routerLink="/search" class="button is-danger is-outlined">Regresar</a>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div *ngFor="let url of character.urls" class="column">
+        <a [href]="url.url">{{url.type}}</a>
+      </div>
+    </div>
+  </section>
+
+</div>
