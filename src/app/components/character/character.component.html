@@ -2,21 +2,54 @@
 
   <section class="section">
     <div class="columns is-multiline">
-      <div class="column is-2">
-        <figure class="image is-square">
-          <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" class="img-circle">
+      <div class="column is-3">
+        <figure *ngIf="img" class="image is-square">
+          <img [src]="img" class="img-circle">
         </figure>
       </div>
 
-      <div class="column">
+      <div class="column is-6">
         <h1 class="title is-1">{{character.name}}</h1>
       </div>
 
-      <div class="column is-4">
+      <div class="column is-3">
         <a routerLink="/search" class="button is-danger is-outlined">Regresar</a>
       </div>
     </div>
+  </section>
 
+  <section>
+    <div class="tabs is-centered">
+      <ul>
+        <li>
+          <a>Comics</a>
+        </li>
+        <li>
+          <a>Events</a>
+        </li>
+        <li>
+          <a>Series</a>
+        </li>
+        <li>
+          <a>Stories</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="columns" *ngFor="let comic of character.comics.items">
+      <div class="column is-6">
+        <h1 class="title">{{comic.name}}</h1>
+      </div>
+
+      <div class="column is-3">
+        <a class="subtitle is-4" [href]="comic.resourceURI">Link</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="columns">
       <div *ngFor="let url of character.urls" class="column">
         <a [href]="url.url">{{url.type}}</a>

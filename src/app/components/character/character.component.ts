@@ -9,6 +9,8 @@ import { MarvelService } from "../../services/marvel.service";
 })
 export class CharacterComponent {
   character: any = {};
+  img: string;
+  comics: any = {};
 
   constructor(private marvel: MarvelService, private router: ActivatedRoute) {
     this.router.params.subscribe(params => {
@@ -19,7 +21,8 @@ export class CharacterComponent {
   getCharacterForId(id: number) {
     this.marvel.getCharacterForId(id).subscribe((data: any) => {
       console.log(data);
-      this.character = data.data.results[0];
+      this.character = data;
+      this.img = data.thumbnail.path + "." + data.thumbnail.extension;
     });
   }
 }

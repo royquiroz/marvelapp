@@ -36,6 +36,11 @@ hr {
   height: 50px;
 }
 
+.navbar-item,
+.dark {
+  background-color: #0a0a0a;
+}
+
 /* Animaciones */
 
 .animated {

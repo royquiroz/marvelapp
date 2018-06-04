@@ -4,24 +4,30 @@
       <img src="assets/img/marvel-brand-logo.png" alt="Logo marvel" width="100" height="28">
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="true">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+    <div class="navbar-burger burger" data-target="navbar-menu" onclick="document.getElementById('navbar-menu').classList.toggle('is-active');">
+      <span class="aria-hidden"></span>
+      <span class="aria-hidden"></span>
+      <span class="aria-hidden"></span>
+    </div>
   </div>
 
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <span class="navbar-item" routerLinkActive="active">
+  <div id="navbar-menu" class="navbar-menu dark">
+    <div class="navbar-item" routerLinkActive="active">
       <a class="button is-danger is-outlined" [routerLink]="['home']">
-        Home
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+        <span>Home</span>
       </a>
-    </span>
+    </div>
 
-    <span class="navbar-item" routerLinkActive="active">
+    <div class="navbar-item" routerLinkActive="active">
       <a class="button is-danger is-outlined" [routerLink]="['search']">
-        Search
+        <span class="icon">
+          <i class="fas fa-search"></i>
+        </span>
+        <span>Search</span>
       </a>
-    </span>
+    </div>
   </div>
 </nav>
