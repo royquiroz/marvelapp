@@ -10,7 +10,12 @@ import { MarvelService } from "../../services/marvel.service";
 export class CharacterComponent {
   character: any = {};
   img: string;
-  comics: any = {};
+  comics: any = {
+    isComics: false
+  };
+  events: any = {
+    isEvents: false
+  };
 
   constructor(private marvel: MarvelService, private router: ActivatedRoute) {
     this.router.params.subscribe(params => {
@@ -24,5 +29,15 @@ export class CharacterComponent {
       this.character = data;
       this.img = data.thumbnail.path + "." + data.thumbnail.extension;
     });
+  }
+
+  showComics(data: any) {
+    this.comics.comics = data;
+    this.comics.isComics = !this.comics.isComics;
+  }
+
+  showEvents(data: any) {
+    this.events.events = data;
+    this.events.isEvents = !this.events.isEvents;
   }
 }

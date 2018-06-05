@@ -21,10 +21,10 @@
   <section>
     <div class="tabs is-centered">
       <ul>
-        <li>
+        <li (click)="showComics(character?.comics)" [ngClass]="{'is-active': comics.isComics}">
           <a>Comics</a>
         </li>
-        <li>
+        <li (click)="showEvents(character?.events)" [ngClass]="{'is-active': events.isEvents}">
           <a>Events</a>
         </li>
         <li>
@@ -37,14 +37,18 @@
     </div>
   </section>
 
-  <section>
-    <div class="columns" *ngFor="let comic of character.comics.items">
-      <div class="column is-6">
-        <h1 class="title">{{comic.name}}</h1>
+  <section *ngIf="comics.isComics">
+    <div class="columns" *ngFor="let comic of comics?.comics?.items">
+      <div class="column is-half is-offset-one-quarter">
+        <a class="subtitle is-4" [href]="comic.resourceURI">{{comic.name}}</a>
       </div>
+    </div>
+  </section>
 
-      <div class="column is-3">
-        <a class="subtitle is-4" [href]="comic.resourceURI">Link</a>
+  <section *ngIf="events.isEvents">
+    <div class="columns" *ngFor="let event of events?.events?.items">
+      <div class="column is-half is-offset-one-quarter">
+        <a class="subtitle is-4" [href]="event.resourceURI">{{event.name}}</a>
       </div>
     </div>
   </section>
