@@ -9,7 +9,8 @@
       </div>
 
       <div class="column is-6">
-        <h1 class="title is-1">{{character.name}}</h1>
+        <h1 class="title is-3">{{character.name}}</h1>
+        <p>{{character.description}}</p>
       </div>
 
       <div class="column is-3">
@@ -18,26 +19,40 @@
     </div>
   </section>
 
-  <section>
-    <div class="tabs is-centered">
-      <ul>
-        <li (click)="showComics(character?.comics)" [ngClass]="{'is-active': comics.isComics}">
-          <a>Comics</a>
-        </li>
-        <li (click)="showEvents(character?.events)" [ngClass]="{'is-active': events.isEvents}">
-          <a>Events</a>
-        </li>
-        <li>
-          <a>Series</a>
-        </li>
-        <li>
-          <a>Stories</a>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <div class="tabs is-centered is-boxed">
+    <ul>
+      <li (click)="showComics(character?.comics)" [ngClass]="{'is-active': comics.isComics}">
+        <a>Comics &nbsp;
+          <span class="tag is-dark">
+            {{character?.comics?.available}}
+          </span>
+        </a>
+      </li>
+      <li (click)="showEvents(character?.events)" [ngClass]="{'is-active': events.isEvents}">
+        <a>Events &nbsp;
+          <span class="tag is-dark">
+            {{character?.events?.available}}
+          </span>
+        </a>
+      </li>
+      <li (click)="showSeries(character?.series)" [ngClass]="{'is-active': series.isSeries}">
+        <a>Series &nbsp;
+          <span class="tag is-dark">
+            {{character?.series?.available}}
+          </span>
+        </a>
+      </li>
+      <li (click)="showStories(character?.stories)" [ngClass]="{'is-active': stories.isStories}">
+        <a>Stories &nbsp;
+          <span class="tag is-dark">
+            {{character?.stories?.available}}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
 
-  <section *ngIf="comics.isComics">
+  <section class="section" *ngIf="comics.isComics">
     <div class="columns" *ngFor="let comic of comics?.comics?.items">
       <div class="column is-half is-offset-one-quarter">
         <a class="subtitle is-4" [href]="comic.resourceURI">{{comic.name}}</a>
@@ -45,7 +60,7 @@
     </div>
   </section>
 
-  <section *ngIf="events.isEvents">
+  <section class="section" *ngIf="events.isEvents">
     <div class="columns" *ngFor="let event of events?.events?.items">
       <div class="column is-half is-offset-one-quarter">
         <a class="subtitle is-4" [href]="event.resourceURI">{{event.name}}</a>
@@ -53,12 +68,30 @@
     </div>
   </section>
 
-  <section>
-    <div class="columns">
-      <div *ngFor="let url of character.urls" class="column">
-        <a [href]="url.url">{{url.type}}</a>
+  <section class="section" *ngIf="series.isSeries">
+    <div class="columns" *ngFor="let serie of series?.series?.items">
+      <div class="column is-half is-offset-one-quarter">
+        <a class="subtitle is-4" [href]="serie.resourceURI">{{serie.name}}</a>
       </div>
     </div>
+  </section>
+
+  <section class="section" *ngIf="stories.isStories">
+    <div class="columns" *ngFor="let storie of stories?.stories?.items">
+      <div class="column is-half is-offset-one-quarter">
+        <a class="subtitle is-4" [href]="storie.resourceURI">{{storie.name}}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li *ngFor="let url of character.urls">
+          <a [href]="url.url">{{url.type}}</a>
+        </li>
+      </ul>
+    </nav>
   </section>
 
 </div>
